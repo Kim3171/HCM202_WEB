@@ -353,7 +353,7 @@ function App() {
         {/* Nav */}
         <nav className={`site-nav fixed top-0 w-full z-50 ${darkMode ? 'nav-dark' : ''}`}>
           <div className="nav-inner container mx-auto px-4">
-            <button onClick={() => window.location.reload()} className="nav-left font-extrabold tracking-wide text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 rounded-sm" aria-label="Tải lại trang">HCM202_IA1701</button>
+            <button onClick={() => window.location.reload()} className="nav-left font-extrabold tracking-wide text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400/60 rounded-sm" aria-label="Tải lại trang">HCM202_AI1807</button>
             <ul className="nav-menu hidden md:flex">
               {navItems.map(item => (
                 <li key={item.id}>
@@ -371,7 +371,7 @@ function App() {
               <button aria-label="Chuyển chế độ sáng/tối" className="mode-toggle" onClick={toggleDarkMode}>
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
-              <div className="group-badge">NHÓM 8</div>
+              <div className="group-badge">NHÓM SPST2</div>
             </div>
           </div>
         </nav>
@@ -1504,7 +1504,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-red-900 border-t border-yellow-400/20 py-8">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-yellow-100 mb-4">© 2025 - Tư tưởng Hồ Chí Minh về Đại đoàn kết toàn dân tộc và Đoàn kết quốc tế - Nhóm 8 - IA1701</p>
+            <p className="text-yellow-100 mb-4">© 2026 - Tư tưởng Hồ Chí Minh về Đại đoàn kết toàn dân tộc và Đoàn kết quốc tế - Nhóm SPST2 - AI1807</p>
             <p className="text-yellow-300 text-sm">"Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công" - Chủ tịch Hồ Chí Minh</p>
           </div>
         </footer>
