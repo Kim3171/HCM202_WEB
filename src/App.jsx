@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Star, Users, Globe, Heart, BookOpen, Award, ArrowRight, ChevronDown, Sun, Moon } from 'lucide-react'
 
+
 function App() {
     const [currentQuiz, setCurrentQuiz] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState(null)
@@ -39,6 +40,7 @@ function App() {
         { id: 'timeline', label: 'Hành trình' },
         { id: 'thoi-ky-qua-do', label: 'Thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam' },
         { id: 'moi-quan-he', label: 'Mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội' },
+        { id: 'video-giang-giai', label: 'Video giải thích' }, 
         { id: 'cau-hoi-suy-ngam', label: 'Câu hỏi suy ngẫm' },
         { id: 'quiz', label: 'Quiz' },
         { id: 'tinh-minh-bach-ai', label: 'Tính minh bạch AI' }
@@ -858,11 +860,370 @@ function App() {
                     </div>
                 </section>
 
-                {/* Section: Câu hỏi suy ngẫm */}
-                <section id="cau-hoi-suy-ngam" className="min-h-screen bg-gradient-to-br from-red-700 via-red-800 to-red-900 relative overflow-hidden">
-                    {/* Video nền */}
+                {/* === SECTION VIDEO GIẢI THÍCH === */}
+                <section id="video-giang-giai" className="py-16 bg-gradient-to-b from-red-900/90 to-black/90 relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute inset-0 bg-repeat" style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23fbbf24' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+                            backgroundSize: '400px'
+                        }}></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-12">
+                            <div className="inline-flex items-center gap-3 mb-4 px-6 py-2 bg-yellow-400/10 backdrop-blur-sm rounded-full border border-yellow-400/30">
+                                <span className="text-2xl">🎬</span>
+                                <span className="text-yellow-300 font-bold text-lg tracking-wide">VIDEO GIẢNG GIẢI TRỰC QUAN</span>
+                                <span className="text-2xl">📽️</span>
+                            </div>
+
+                            <h2 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-4">
+                                SO SÁNH TƯ TƯỞNG ĐỘC LẬP DÂN TỘC
+                            </h2>
+                            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                                Phan Bội Châu • Phan Châu Trinh • Hồ Chí Minh - 3 con đường, 1 lựa chọn lịch sử
+                            </p>
+                            <div className="w-40 h-1 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 mx-auto mt-6 rounded-full"></div>
+                        </div>
+
+                        {/* PHẦN GIỚI THIỆU MỚI - FLEXBOX ĐỒNG BỘ */}
+                        <div className="max-w-5xl mx-auto mb-12">
+                            <div className="text-center mb-8">
+                                <h2 className="text-3xl font-bold text-yellow-400 mb-2">Tại Sao Tư Tưởng Hồ Chí Minh Là Đột Phá?</h2>
+                                <div className="w-48 h-1 bg-gradient-to-r from-yellow-400 to-red-600 mx-auto rounded-full"></div>
+                            </div>
+
+                            <div className="bg-gradient-to-b from-yellow-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border-2 border-yellow-400/30">
+                                <div className="text-center mb-8">
+                                    <h3 className="text-3xl font-bold text-yellow-300 mb-4">
+                                        Để Hiểu Sự Đột Phá Trong Tư Tưởng Hồ Chí Minh
+                                    </h3>
+                                    <p className="text-white/90 text-xl mb-6 max-w-3xl mx-auto">
+                                        Chúng ta cần so sánh với các nhà yêu nước tiền bối.
+                                        Video dưới đây sẽ phân tích 3 con đường khác nhau trong lịch sử Việt Nam:
+                                    </p>
+                                </div>
+
+                                {/* === FIXED: CHUYỂN TỪ GRID SANG FLEXBOX === */}
+                                <div className="flex flex-col md:flex-row gap-8">
+                                    {/* Phan Bội Châu */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-red-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-red-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-6 border-2 border-red-400/30 group-hover:border-red-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                            <div className="flex flex-col items-center text-center h-full">
+                                                <div className="relative mb-4">
+                                                    <div className="absolute inset-0 bg-red-400/20 rounded-full blur-md"></div>
+                                                    <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-2xl">🇯🇵</span>
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-red-300 mb-3">Phan Bội Châu</h4>
+
+                                                <div className="bg-red-900/40 rounded-xl p-3 w-full mb-4">
+                                                    <span className="text-yellow-200/80 text-sm">Con Đường</span>
+                                                    <p className="text-yellow-400 font-bold mt-1">Dựa Vào Ngoại Bang</p>
+                                                </div>
+
+                                                <p className="text-white/80 text-center leading-relaxed mb-4">
+                                                    Chủ trương "Đông Du", dựa vào Nhật Bản để đánh Pháp
+                                                </p>
+
+                                                <div className="mt-auto pt-4 border-t border-red-400/20 w-full text-center">
+                                                    <span className="text-red-300/70 text-sm">• Cầu viện ngoại bang •</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Phan Châu Trinh */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-700/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-yellow-50/10 to-orange-900/30 backdrop-blur-lg rounded-2xl p-6 border-2 border-yellow-400/30 group-hover:border-yellow-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                            <div className="flex flex-col items-center text-center h-full">
+                                                <div className="relative mb-4">
+                                                    <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md"></div>
+                                                    <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-2xl">📚</span>
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-yellow-300 mb-3">Phan Châu Trinh</h4>
+
+                                                <div className="bg-orange-900/40 rounded-xl p-3 w-full mb-4">
+                                                    <span className="text-yellow-200/80 text-sm">Con Đường</span>
+                                                    <p className="text-yellow-400 font-bold mt-1">Cải Cách Ôn Hòa</p>
+                                                </div>
+
+                                                <p className="text-white/80 text-center leading-relaxed mb-4">
+                                                    Đề cao "Khai dân trí", cải cách trong khuôn khổ thuộc địa
+                                                </p>
+
+                                                <div className="mt-auto pt-4 border-t border-yellow-400/20 w-full text-center">
+                                                    <span className="text-yellow-300/70 text-sm">• Duy tân • Khai hóa •</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Hồ Chí Minh - HIGHLIGHTED */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-red-600/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-yellow-100/10 to-red-900/40 backdrop-blur-lg rounded-2xl p-6 border-3 border-yellow-400 group-hover:border-yellow-300 transition-all duration-300 group-hover:scale-[1.02] h-full shadow-xl">
+                                            <div className="flex flex-col items-center text-center h-full">
+                                                <div className="relative mb-4">
+                                                    <div className="absolute inset-0 bg-yellow-400/30 rounded-full blur-md"></div>
+                                                    <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-2xl">⭐</span>
+                                                    </div>
+                                                    <div className="absolute -top-2 -right-2 bg-yellow-500 text-xs font-bold text-white px-2 py-1 rounded-full">
+                                                        ĐỘT PHÁ
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-yellow-400 mb-3">Hồ Chí Minh</h4>
+
+                                                <div className="bg-gradient-to-r from-yellow-500/20 to-red-500/20 rounded-xl p-3 w-full mb-4 border border-yellow-400/30">
+                                                    <span className="text-yellow-200 text-sm">Con Đường Cách Mạng</span>
+                                                    <p className="text-yellow-300 font-bold mt-1">Độc Lập + CNXH</p>
+                                                </div>
+
+                                                <p className="text-white font-medium text-center leading-relaxed mb-4">
+                                                    Độc lập dân tộc phải đi đôi với chủ nghĩa xã hội
+                                                </p>
+
+                                                <div className="mt-auto pt-4 border-t border-yellow-400/30 w-full text-center">
+                                                    <span className="text-yellow-400 text-sm font-semibold">• Cách mạng triệt để •</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* === END FLEXBOX FIX === */}
+
+                                {/* TIMELINE INDICATOR - GIỮ NGUYÊN */}
+                                <div className="flex items-center justify-center mt-8 pt-6 border-t border-yellow-400/20">
+                                    <div className="text-center">
+                                        <p className="text-white/80 text-lg mb-3">
+                                            <span className="text-yellow-300 font-bold">Mỗi con đường</span> thể hiện một cách tiếp cận khác biệt
+                                            trong bối cảnh lịch sử đầu thế kỷ XX
+                                        </p>
+                                        <div className="flex items-center justify-center gap-2 mt-2">
+                                            <div className="text-sm text-yellow-300/80">Độc lập hình thức</div>
+                                            <div className="w-16 h-1 bg-gradient-to-r from-yellow-400/40 to-yellow-400 rounded-full"></div>
+                                            <div className="text-sm font-bold text-yellow-400 px-2">→ BƯỚC NHẢY ←</div>
+                                            <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full"></div>
+                                            <div className="text-sm text-yellow-300">Độc lập thực chất</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* MAIN VIDEO CONTAINER - CENTERED */}
+                        <div className="max-w-5xl mx-auto">
+                            <div className="bg-gradient-to-br from-black/60 to-red-900/40 backdrop-blur-sm rounded-3xl p-2 md:p-3 border-2 border-yellow-400/30 shadow-2xl">
+                                <div className="aspect-video rounded-2xl overflow-hidden border border-yellow-400/20 bg-black">
+                                    <video
+                                        className="w-full h-full object-cover"
+                                        controls
+                                        autoPlay={false}
+                                        muted={false}
+                                        playsInline
+                                        preload="metadata"
+                                        title="So sánh tư tưởng độc lập dân tộc: Phan Bội Châu, Phan Châu Trinh vs Hồ Chí Minh"
+                                    >
+                                        <source src="/6.0.mp4" type="video/mp4" />
+                                        Trình duyệt của bạn không hỗ trợ thẻ video.
+                                    </video>
+                                </div>
+                            </div>
+
+                            {/* 3-COLUMN FLEXBOX - UPGRADED PREMIUM DESIGN */}
+                            <div className="mt-12">
+                                <div className="text-center mb-8">
+                                    <h2 className="text-3xl font-bold text-yellow-400 mb-2">Thông Tin Video</h2>
+                                    <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-red-600 mx-auto rounded-full"></div>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto px-4">
+                                    {/* Thời lượng - Enhanced */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-red-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-yellow-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border-2 border-yellow-400/30 group-hover:border-yellow-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                            <div className="flex flex-col items-center h-full">
+                                                <div className="relative mb-6">
+                                                    <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md"></div>
+                                                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-3xl">⏱️</span>
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-yellow-300 mb-4">Thời Lượng</h4>
+
+                                                <div className="bg-red-900/40 rounded-xl p-4 w-full mb-4">
+                                                    <div className="flex items-center justify-between mb-2">
+                                                        <span className="text-yellow-200/80 text-sm">Thời lượng video</span>
+                                                        <span className="text-yellow-400 font-bold">1 phút 20s</span>
+                                                    </div>
+                                                    <div className="w-full bg-red-800/40 rounded-full h-2">
+                                                        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full w-3/4"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p className="text-white/90 text-center text-lg leading-relaxed mt-auto">
+                                                    Video giải thích trực quan, dễ hiểu, tối ưu cho việc học tập
+                                                </p>
+
+                                                <div className="mt-6 pt-4 border-t border-yellow-400/20 w-full text-center">
+                                                    <span className="text-yellow-300/70 text-sm">• Tối ưu tiếp thu • Trực quan • Hiệu quả</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Nội dung - Enhanced */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-red-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-red-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border-2 border-red-400/30 group-hover:border-red-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                            <div className="flex flex-col items-center h-full">
+                                                <div className="relative mb-6">
+                                                    <div className="absolute inset-0 bg-red-400/20 rounded-full blur-md"></div>
+                                                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-3xl">🎯</span>
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-red-300 mb-4">Nội Dung</h4>
+
+                                                <div className="space-y-3 w-full mb-6">
+                                                    <div className="flex items-center gap-3 bg-red-900/40 p-3 rounded-lg">
+                                                        <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                                            <span className="text-yellow-400 text-lg">1</span>
+                                                        </div>
+                                                        <span className="text-white/90">So sánh 3 quan điểm yêu nước</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-3 bg-red-900/40 p-3 rounded-lg">
+                                                        <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                                            <span className="text-yellow-400 text-lg">2</span>
+                                                        </div>
+                                                        <span className="text-white/90">Phân tích tư tưởng Hồ Chí Minh</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-3 bg-red-900/40 p-3 rounded-lg">
+                                                        <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                                            <span className="text-yellow-400 text-lg">3</span>
+                                                        </div>
+                                                        <span className="text-white/90">Bài học lịch sử trực quan</span>
+                                                    </div>
+                                                </div>
+
+                                                <p className="text-white/90 text-center text-lg leading-relaxed mt-auto">
+                                                    Phân tích sâu, so sánh đa chiều các quan điểm lịch sử
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Nguồn - Enhanced */}
+                                    <div className="group relative flex-1">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-red-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                        <div className="relative bg-gradient-to-b from-yellow-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-8 border-2 border-yellow-400/30 group-hover:border-yellow-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                            <div className="flex flex-col items-center h-full">
+                                                <div className="relative mb-6">
+                                                    <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md"></div>
+                                                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center shadow-2xl">
+                                                        <span className="text-white text-3xl">📁</span>
+                                                    </div>
+                                                </div>
+
+                                                <h4 className="text-2xl font-bold text-yellow-300 mb-4">Nguồn</h4>
+
+                                                <div className="bg-gradient-to-r from-yellow-500/10 to-red-500/10 rounded-xl p-5 w-full mb-6 border border-yellow-400/20">
+                                                    <div className="text-center">
+                                                        {/* CHỈNH SỬA TẠI ĐÂY */}
+                                                        <p className="text-yellow-300 font-bold text-lg mb-1">HCM202</p>
+                                                        <p className="text-white/80 text-sm">Môn: Tư tưởng Hồ Chí Minh</p>
+                                                        {/* HOẶC: */}
+                                                        {/* <p className="text-yellow-300 font-bold text-lg mb-1">Tư tưởng HCM</p>
+                    <p className="text-white/80 text-sm">Mã môn học: HCM202</p> */}
+                                                    </div>
+                                                </div>
+
+                                                <div className="space-y-2 w-full mb-4">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                                        <span className="text-white/80 text-sm">Video bài giảng nội bộ</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                                        <span className="text-white/80 text-sm">Tài liệu học tập chính thức</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                                        <span className="text-white/80 text-sm">Nội dung đã được kiểm duyệt</span>
+                                                    </div>
+                                                </div>
+
+                                                <p className="text-white/90 text-center text-lg leading-relaxed mt-auto">
+                                                    Tài liệu chất lượng cao dành cho giáo dục
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* BOTTOM SECTION - 4-POINT CHECKLIST - SINGLE COLUMN CENTERED */}
+                            <div className="mt-10 flex justify-center">
+                                <div className="bg-gradient-to-r from-red-800/40 to-red-900/40 backdrop-blur-sm rounded-2xl p-6 border border-yellow-400/20 max-w-3xl w-full">
+                                    <h4 className="text-yellow-300 font-bold text-xl mb-6 text-center">
+                                        <span className="text-2xl mr-3">📚</span>
+                                        Bạn sẽ hiểu rõ sau video:
+                                    </h4>
+
+                                    {/* 4-POINT LIST - CENTERED */}
+                                    <div className="space-y-4 max-w-2xl mx-auto text-center">
+                                        <div className="flex items-center justify-center gap-3">
+                                            <span className="text-yellow-400 text-xl flex-shrink-0">✓</span>
+                                            <span className="text-white">Sự khác biệt giữa "độc lập hình thức" và "độc lập thực chất"</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-3">
+                                            <span className="text-yellow-400 text-xl flex-shrink-0">✓</span>
+                                            <span className="text-white">Tại sao Hồ Chí Minh chọn con đường độc lập + CNXH</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-3">
+                                            <span className="text-yellow-400 text-xl flex-shrink-0">✓</span>
+                                            <span className="text-white">Cách Hồ Chí Minh kế thừa &amp; sáng tạo từ tiền nhân</span>
+                                        </div>
+                                        <div className="flex items-center justify-center gap-3">
+                                            <span className="text-yellow-400 text-xl flex-shrink-0">✓</span>
+                                            <span className="text-white">Giá trị lịch sử của tư tưởng Hồ Chí Minh ngày nay</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* CHEVRON DOWN BUTTON */}
+                        <div className="text-center mt-12">
+                            <button
+                                onClick={() => scrollToNextSection('video-giang-giai')}
+                                className="text-yellow-300 hover:text-yellow-400 transition-colors duration-300 hover:scale-110 transform"
+                                aria-label="Chuyển đến phần tiếp theo"
+                            >
+                                <ChevronDown className="w-8 h-8 mx-auto" />
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                {/* Section: Câu hỏi suy ngẫm - ĐẦY ĐỦ BACKGROUND */}
+                <section id="cau-hoi-suy-ngam" className="min-h-screen bg-gradient-to-br from-red-700 via-red-800 to-red-900 relative overflow-hidden py-16">
+                    {/* === 1. VIDEO BACKGROUND - ĐÃ THÊM LẠI === */}
                     <video
-                        className="absolute inset-0 w-full h-full object-cover opacity-15"
+                        className="absolute inset-0 w-full h-full object-cover opacity-15"  // Change from opacity-30 to opacity-15
                         autoPlay
                         muted
                         loop
@@ -872,255 +1233,554 @@ function App() {
                         Your browser does not support the video tag.
                     </video>
 
-                    {/* Overlay để làm sẫm video */}
+                    {/* === 2. VIDEO OVERLAY - Làm tối video === */}
                     <div className="absolute inset-0 bg-black bg-opacity-50 z-5"></div>
 
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-20 z-10">
-                        <div className="absolute inset-0 bg-repeat opacity-30" style={{
+                    {/* === 3. PATTERN BACKGROUND ĐỘNG === */}
+                    <div className="absolute inset-0 opacity-15 z-10">
+                        <div className="absolute inset-0 bg-repeat opacity-20" style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd770' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
                         }}></div>
                     </div>
 
-                    <div className="relative z-20 container mx-auto px-8 py-20 min-h-screen flex items-center">
-                        {/* Tiêu đề chính */}
-                        <div className="w-full">
-                            <div className="text-center mb-20">
-                                <h1 className="text-5xl md:text-6xl font-bold text-yellow-400 mb-4 tracking-wide">
-                                    CÂU HỎI SUY NGẪM
-                                </h1>
-                                <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                                    Thảo luận sâu sắc về tư tưởng Hồ Chí Minh trong bối cảnh lịch sử
-                                </p>
-                                <div className="w-32 h-1 bg-yellow-400 mx-auto mt-6"></div>
+                    {/* === 4. ANIMATED GRADIENT OVERLAY === */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-red-600/3 animate-pulse z-10"></div>
+
+                    {/* === NỘI DUNG CHÍNH === */}
+                    <div className="relative z-20 container mx-auto px-4">
+                        {/* Tiêu đề chính - UPGRADED */}
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center gap-3 mb-4 px-6 py-2 bg-yellow-400/10 backdrop-blur-sm rounded-full border border-yellow-400/30">
+                                <span className="text-2xl">🤔</span>
+                                <span className="text-yellow-300 font-bold text-lg tracking-wide">CÂU HỎI SUY NGẪM</span>
+                                <span className="text-2xl">💭</span>
                             </div>
+                            <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-4 tracking-tight">
+                                Khám Phá Chiều Sâu Tư Tưởng Hồ Chí Minh
+                            </h1>
+                            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                                Phân tích sự đột phá trong quan niệm về độc lập dân tộc qua các thời kỳ lịch sử
+                            </p>
+                            <div className="w-40 h-1 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 mx-auto mt-6 rounded-full"></div>
+                        </div>
 
-                            {/* Phần câu hỏi suy ngẫm */}
-                            <div className="max-w-4xl mx-auto px-6">
-                                <div className="bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 backdrop-blur-xl border-2 border-yellow-400/30 p-8 rounded-3xl shadow-2xl">
+                        {/* Main Content - UPGRADED WITH FLEXBOX */}
+                        <div className="max-w-5xl mx-auto">
+                            <div className="bg-gradient-to-br from-black/60 to-red-900/40 backdrop-blur-lg rounded-3xl p-2 border-2 border-yellow-400/30 shadow-2xl">
+                                <div className="bg-gradient-to-b from-red-900/20 to-black/40 rounded-2xl p-8 border border-yellow-400/20">
 
+                                    {/* Question Section - FLEXBOX LAYOUT */}
+                                    <div className="mb-10">
+                                        <div className="flex flex-col md:flex-row items-start gap-6 mb-8">
+                                            {/* Question Icon */}
+                                            <div className="flex-shrink-0">
+                                                <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 text-black rounded-full w-14 h-14 flex items-center justify-center text-2xl font-black shadow-lg">
+                                                    ?
+                                                </div>
+                                            </div>
 
-                                    <div className="bg-black/50 rounded-2xl p-8 border border-yellow-400/20">
-                                        <div className="mb-6">
-                                            <div className="flex items-start gap-4">
-                                                <div className="bg-yellow-400 text-black rounded-full w-8 h-8 flex items-center justify-center text-lg font-black flex-shrink-0 mt-1">?</div>
-                                                <div>
-                                                    <h4 className="text-yellow-300 font-bold text-2xl mb-4">Câu hỏi thảo luận:</h4>
-                                                    <p className="text-white text-xl leading-relaxed mb-6">
-                                                        Quan niệm độc lập dân tộc của Hồ Chí Minh khác biệt như thế nào so với các tiền nhân như Lê Lợi hay Phan Bội Châu, đặc biệt trong việc gắn kết với chủ nghĩa xã hội để đảm bảo hạnh phúc thực sự cho nhân dân lao động?
+                                            {/* Question Content */}
+                                            <div className="flex-1">
+                                                <div className="mb-4">
+                                                    <h4 className="text-yellow-300 font-bold text-2xl mb-3 flex items-center gap-3">
+                                                        <span className="text-3xl">🎯</span>
+                                                        Câu hỏi thảo luận trọng tâm:
+                                                    </h4>
+                                                </div>
+
+                                                <div className="bg-gradient-to-r from-yellow-500/10 to-red-500/10 rounded-xl p-6 border-l-4 border-yellow-400">
+                                                    <p className="text-white text-xl leading-relaxed font-medium">
+                                                        <span className="text-yellow-300 font-bold">"Quan niệm độc lập dân tộc của Hồ Chí Minh khác biệt như thế nào</span>
+                                                        <br />
+                                                        <span className="text-white">so với các tiền nhân như Lê Lợi hay Phan Bội Châu,</span>
+                                                        <br />
+                                                        <span className="text-yellow-400 font-bold">đặc biệt trong việc gắn kết với chủ nghĩa xã hội</span>
+                                                        <br />
+                                                        <span className="text-white">để đảm bảo hạnh phúc thực sự cho nhân dân lao động?"</span>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6 border-l-4 border-blue-400">
-                                            <h5 className="text-blue-300 font-semibold text-lg mb-3 flex items-center gap-2">
-                                                <span className="text-2xl">💡</span> Gợi ý tư duy:
-                                            </h5>
-                                            <ul className="text-blue-100 space-y-2 text-lg">
-                                                <li className="flex items-start gap-3">
-                                                    <span className="text-blue-400 text-xl mt-1">•</span>
-                                                    <span>Đặc điểm cụ thể của xã hội Việt Nam thời kỳ đầu thế kỷ XX</span>
-                                                </li>
-                                                <li className="flex items-start gap-3">
-                                                    <span className="text-blue-400 text-xl mt-1">•</span>
-                                                    <span>Mối quan hệ giữa giải phóng dân tộc và giải phóng giai cấp</span>
-                                                </li>
-                                                <li className="flex items-start gap-3">
-                                                    <span className="text-blue-400 text-xl mt-1">•</span>
-                                                    <span>Sự vận dụng sáng tạo chủ nghĩa Marx-Lenin vào điều kiện Việt Nam</span>
-                                                </li>
-                                            </ul>
+                                        {/* Connection to Previous Video */}
+                                        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-4 border border-blue-400/20 mb-8">
+                                            <div className="flex items-center gap-3">
+                                                <span className="text-blue-400 text-2xl">📺</span>
+                                                <div>
+                                                    <p className="text-white/90 font-medium">
+                                                        <span className="text-blue-300">Đã xem video so sánh 3 con đường yêu nước?</span>
+                                                        <br />
+                                                        <span className="text-white/70 text-sm">Video trước đã phân tích 3 quan điểm khác nhau.
+                                                            Bây giờ hãy cùng suy ngẫm sâu hơn về bản chất của sự khác biệt này.</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Thinking Hints - FLEXBOX GRID */}
+                                    <div className="mb-10">
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <span className="text-3xl">💡</span>
+                                            <h5 className="text-yellow-300 font-bold text-xl">Gợi ý tư duy để phân tích:</h5>
                                         </div>
 
-                                        {/* Nút xem câu trả lời */}
-                                        <div className="text-center mt-8">
-                                            <button
-                                                onClick={() => setShowAnswerModal(true)}
-                                                className="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-500 hover:to-orange-500 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
-                                            >
-                                                <span className="text-2xl">💡</span>
-                                                XEM CÂU TRẢ LỜI
-                                                <span className="text-2xl">📖</span>
-                                            </button>
+                                        {/* 3 COLUMNS WITH FLEXBOX */}
+                                        <div className="flex flex-col md:flex-row gap-6">
+                                            {/* Hint 1 */}
+                                            <div className="flex-1 group">
+                                                <div className="relative h-full">
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-red-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                                    <div className="relative bg-gradient-to-b from-red-50/10 to-red-900/30 backdrop-blur-lg rounded-2xl p-6 border-2 border-red-400/30 group-hover:border-red-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                                        <div className="flex flex-col items-center text-center h-full">
+                                                            <div className="relative mb-4">
+                                                                <div className="absolute inset-0 bg-red-400/20 rounded-full blur-md"></div>
+                                                                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center shadow-2xl">
+                                                                    <span className="text-white text-xl">📜</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <h6 className="text-red-300 font-bold text-lg mb-3">1. Bối cảnh lịch sử</h6>
+
+                                                            <div className="bg-red-900/40 rounded-xl p-3 w-full mb-4">
+                                                                <span className="text-yellow-200/80 text-sm">Đặc điểm xã hội</span>
+                                                                <p className="text-yellow-400 font-bold mt-1">Thuộc địa nửa phong kiến</p>
+                                                            </div>
+
+                                                            <p className="text-white/80 text-center leading-relaxed text-sm">
+                                                                Xã hội Việt Nam đầu thế kỷ XX với những mâu thuẫn đặc thù
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Hint 2 */}
+                                            <div className="flex-1 group">
+                                                <div className="relative h-full">
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-orange-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                                    <div className="relative bg-gradient-to-b from-orange-50/10 to-orange-900/30 backdrop-blur-lg rounded-2xl p-6 border-2 border-orange-400/30 group-hover:border-orange-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                                        <div className="flex flex-col items-center text-center h-full">
+                                                            <div className="relative mb-4">
+                                                                <div className="absolute inset-0 bg-orange-400/20 rounded-full blur-md"></div>
+                                                                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center shadow-2xl">
+                                                                    <span className="text-white text-xl">⚖️</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <h6 className="text-orange-300 font-bold text-lg mb-3">2. Mục tiêu kép</h6>
+
+                                                            <div className="bg-orange-900/40 rounded-xl p-3 w-full mb-4">
+                                                                <span className="text-yellow-200/80 text-sm">Kết hợp hai nhiệm vụ</span>
+                                                                <p className="text-yellow-400 font-bold mt-1">Dân tộc + Giai cấp</p>
+                                                            </div>
+
+                                                            <p className="text-white/80 text-center leading-relaxed text-sm">
+                                                                Mối quan hệ giữa giải phóng dân tộc và giải phóng giai cấp
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Hint 3 */}
+                                            <div className="flex-1 group">
+                                                <div className="relative h-full">
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-yellow-800/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                                                    <div className="relative bg-gradient-to-b from-yellow-50/10 to-yellow-900/30 backdrop-blur-lg rounded-2xl p-6 border-2 border-yellow-400/30 group-hover:border-yellow-400/60 transition-all duration-300 group-hover:scale-[1.02] h-full">
+                                                        <div className="flex flex-col items-center text-center h-full">
+                                                            <div className="relative mb-4">
+                                                                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-md"></div>
+                                                                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center shadow-2xl">
+                                                                    <span className="text-white text-xl">🌟</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <h6 className="text-yellow-300 font-bold text-lg mb-3">3. Vận dụng sáng tạo</h6>
+
+                                                            <div className="bg-yellow-900/40 rounded-xl p-3 w-full mb-4">
+                                                                <span className="text-yellow-200/80 text-sm">Lý luận + Thực tiễn</span>
+                                                                <p className="text-yellow-400 font-bold mt-1">Marx-Lenin + Việt Nam</p>
+                                                            </div>
+
+                                                            <p className="text-white/80 text-center leading-relaxed text-sm">
+                                                                Sự vận dụng sáng tạo chủ nghĩa Marx-Lenin vào điều kiện Việt Nam
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Answer Button - UPGRADED */}
+                                    <div className="text-center">
+                                        <div className="mb-4">
+                                            <p className="text-white/70 text-sm mb-2">Sẵn sàng khám phá câu trả lời chi tiết?</p>
+                                        </div>
+
+                                        <button
+                                            onClick={() => setShowAnswerModal(true)}
+                                            className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-500 hover:to-orange-500 text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+                                        >
+                                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-transparent transform -skew-x-12 group-hover:translate-x-full transition-transform duration-500"></span>
+                                            <span className="text-2xl">💡</span>
+                                            <span className="relative">KHÁM PHÁ CÂU TRẢ LỜI PHÂN TÍCH</span>
+                                            <span className="text-2xl">🔍</span>
+                                        </button>
+
+                                        <div className="mt-4 flex items-center justify-center gap-2">
+                                            <span className="text-yellow-300/60 text-xs">•</span>
+                                            <span className="text-white/60 text-xs">So sánh đối chiếu rõ ràng</span>
+                                            <span className="text-yellow-300/60 text-xs">•</span>
+                                            <span className="text-white/60 text-xs">Logic khoa học</span>
+                                            <span className="text-yellow-300/60 text-xs">•</span>
+                                            <span className="text-white/60 text-xs">Kết luận sâu sắc</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        {/* Modal câu trả lời - ĐÃ FIX FLEXBOX VÀ BỔ SUNG KẾT LUẬN */}
+                        {showAnswerModal && (
+                            <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                                <div className="relative max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-3xl border-4 border-yellow-400/50 shadow-2xl">
+                                    {/* Modal background */}
+                                    {/* Background Pattern ĐỘNG - ĐÃ THÊM LẠI */}
+                                    <div className="absolute inset-0 opacity-20">
+                                        <div className="absolute inset-0 bg-repeat opacity-30" style={{
+                                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd770' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                                        }}></div>
+                                    </div>
 
-                            {/* Modal câu trả lời */}
-                            
-                            {showAnswerModal && (
-                                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-                                    <div className="bg-gradient-to-br from-red-800 via-red-900 to-black max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border-4 border-yellow-400 shadow-2xl">
-                                        <div className="p-8">
-                                            <div className="flex items-center justify-between mb-6">
-                                                <h3 className="text-3xl font-bold text-yellow-400 flex items-center gap-3">
-                                                    <span className="text-4xl">💡</span>
-                                                    CÂU TRẢ LỜI CHI TIẾT
-                                                </h3>
-                                                <button
-                                                    onClick={() => setShowAnswerModal(false)}
-                                                    className="text-white hover:text-yellow-400 text-3xl font-bold transition-colors duration-300"
-                                                >
-                                                    ✕
-                                                </button>
+                                    <div className="relative z-10 p-2">
+                                        {/* Modal header */}
+                                        <div className="flex items-center justify-between p-6 bg-gradient-to-r from-yellow-500/20 to-red-600/20 backdrop-blur-sm border-b border-yellow-400/30">
+                                            <div className="flex items-center gap-4">
+                                                <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+                                                    <span className="text-2xl">💡</span>
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-3xl font-bold text-yellow-400">CÂU TRẢ LỜI PHÂN TÍCH</h3>
+                                                    <p className="text-yellow-300/80 text-sm">So sánh đối chiếu rõ ràng, logic</p>
+                                                </div>
                                             </div>
+                                            <button
+                                                onClick={() => setShowAnswerModal(false)}
+                                                className="text-white hover:text-yellow-400 text-3xl font-bold transition-colors duration-300 bg-red-900/50 hover:bg-red-800/50 w-10 h-10 rounded-full flex items-center justify-center"
+                                            >
+                                                ✕
+                                            </button>
+                                        </div>
 
-                                            <div className="space-y-6 text-white">
-                                                <div className="bg-black/50 rounded-2xl p-6 border border-yellow-400/30">
-                                                    <h4 className="text-yellow-300 font-bold text-xl mb-4 flex items-center gap-2">
-                                                        <span className="bg-yellow-400 text-black rounded-full w-8 h-8 flex items-center justify-center text-lg font-black">I</span>
-                                                        Vì sao Hồ Chí Minh xác định độc lập dân tộc phải gắn liền với chủ nghĩa xã hội, khác biệt với quan niệm của các tiền nhân?
-                                                    </h4>
-                                                    <p className="text-lg leading-relaxed mb-4">
-                                                        Việc Hồ Chí Minh xác định độc lập dân tộc gắn liền với chủ nghĩa xã hội xuất phát từ sự am hiểu sâu sắc về điều kiện lịch sử và xã hội cụ thể của Việt Nam đầu thế kỷ XX:
-                                                    </p>
+                                        {/* Modal content - ĐÃ FIX FLEXBOX */}
+                                        <div className="p-6 overflow-y-auto max-h-[70vh]">
+                                            <div className="space-y-6">
 
-                                                    {/* ==== BỔ SUNG VỀ KẾ THỪA ==== */}
-                                                    <div className="mb-6 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 p-4 rounded-lg border-l-4 border-yellow-500">
-                                                        <p className="text-yellow-200 text-base leading-relaxed">
-                                                            <strong className="text-yellow-300">Kế thừa tinh thần yêu nước:</strong> Hồ Chí Minh kế thừa sâu sắc tinh thần yêu nước nồng nàn, ý chí độc lập tự cường từ các bậc tiền nhân như Lê Lợi, Phan Bội Châu, Phan Châu Trinh. Người trân trọng giá trị truyền thống dân tộc nhưng nâng lên tầm cao mới bằng cách gắn kết với lý luận cách mạng khoa học của thời đại.
-                                                        </p>
-                                                    </div>
-                                                    {/* =============================== */}
-
-                                                    <div className="mb-6">
-                                                        <h5 className="text-yellow-300 font-bold text-lg mb-3">📍 Đặc điểm cụ thể của xã hội Việt Nam thời kỳ đầu thế kỷ XX:</h5>
-                                                        <ul className="space-y-3 text-base">
-                                                            <li className="flex items-start gap-3">
-                                                                <span className="text-yellow-400 text-xl mt-1">•</span>
-                                                                <div>
-                                                                    <strong className="text-yellow-200">Xã hội thuộc địa nửa phong kiến:</strong>
-                                                                    <span className="text-white"> Mâu thuẫn chủ yếu là giữa toàn thể dân tộc Việt Nam với đế quốc xâm lược và bè lũ tay sai.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li className="flex items-start gap-3">
-                                                                <span className="text-yellow-400 text-xl mt-1">•</span>
-                                                                <div>
-                                                                    <strong className="text-yellow-200">Giai cấp công nhân còn non trẻ:</strong>
-                                                                    <span className="text-white"> Số lượng ít ỏi, chưa đủ sức mạnh đơn độc để đánh đổ ách thống trị thực dân.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li className="flex items-start gap-3">
-                                                                <span className="text-yellow-400 text-xl mt-1">•</span>
-                                                                <div>
-                                                                    <strong className="text-yellow-200">Nông dân chiếm đại đa số:</strong>
-                                                                    <span className="text-white"> Hơn 90% dân số, có tinh thần yêu nước nồng nàn và là động lực cách mạng to lớn.</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
+                                                {/* PHẦN 1: So sánh 3 quan điểm - FIXED: DÙNG FLEXBOX */}
+                                                <div className="bg-gradient-to-b from-black/50 to-red-900/30 rounded-2xl p-6 border border-yellow-400/20">
+                                                    <div className="flex items-center gap-3 mb-6">
+                                                        <div className="bg-yellow-400 text-black rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                                                        <h4 className="text-yellow-300 font-bold text-xl">SO SÁNH 3 QUAN ĐIỂM YÊU NƯỚC</h4>
                                                     </div>
 
-                                                    <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-4 border-l-4 border-blue-400">
-                                                        <h6 className="text-blue-300 font-bold text-base mb-2">🎯 Mối quan hệ giữa giải phóng dân tộc và giải phóng giai cấp:</h6>
-                                                        <p className="text-blue-100 text-sm leading-relaxed">
-                                                            Độc lập dân tộc là điều kiện tiên quyết để tiến tới giải phóng giai cấp. Hồ Chí Minh khéo léo kết hợp hai nhiệm vụ này, đặt giải phóng dân tộc lên hàng đầu, nhưng phải dẫn đến chủ nghĩa xã hội để đảm bảo hạnh phúc thực sự cho nhân dân lao động, khác với tiền nhân chỉ dừng ở độc lập lãnh thổ.
+                                                    {/* ==== FIX: CHUYỂN TỪ GRID SANG FLEXBOX ==== */}
+                                                    <div className="flex flex-col md:flex-row gap-4 mb-6">
+                                                        {/* Phan Bội Châu */}
+                                                        <div className="flex-1 bg-red-800/40 rounded-xl p-4 border border-red-400/30">
+                                                            <div className="flex items-center gap-2 mb-3">
+                                                                <span className="text-red-300">🇯🇵</span>
+                                                                <h5 className="text-red-300 font-bold">Phan Bội Châu</h5>
+                                                            </div>
+                                                            <p className="text-white/80 text-sm mb-2"><strong>Con đường:</strong> Dựa ngoại bang</p>
+                                                            <p className="text-white/70 text-xs">"Đông Du", tìm Nhật Bản giúp đánh Pháp</p>
+                                                            <div className="mt-3 pt-2 border-t border-red-400/20">
+                                                                <span className="text-red-300/60 text-xs">• Độc lập hình thức</span>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Phan Châu Trinh */}
+                                                        <div className="flex-1 bg-orange-800/40 rounded-xl p-4 border border-yellow-400/30">
+                                                            <div className="flex items-center gap-2 mb-3">
+                                                                <span className="text-yellow-300">📚</span>
+                                                                <h5 className="text-yellow-300 font-bold">Phan Châu Trinh</h5>
+                                                            </div>
+                                                            <p className="text-white/80 text-sm mb-2"><strong>Con đường:</strong> Cải cách ôn hòa</p>
+                                                            <p className="text-white/70 text-xs">"Khai dân trí", nâng cao dân trí trong khuôn khổ thuộc địa</p>
+                                                            <div className="mt-3 pt-2 border-t border-yellow-400/20">
+                                                                <span className="text-yellow-300/60 text-xs">• Cải cách từng bước</span>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Hồ Chí Minh */}
+                                                        <div className="flex-1 bg-gradient-to-b from-yellow-500/20 to-red-600/20 rounded-xl p-4 border-2 border-yellow-400">
+                                                            <div className="flex items-center gap-2 mb-3">
+                                                                <span className="text-yellow-400">⭐</span>
+                                                                <h5 className="text-yellow-400 font-bold">Hồ Chí Minh</h5>
+                                                            </div>
+                                                            <p className="text-white font-semibold text-sm mb-2"><strong>Con đường:</strong> Cách mạng triệt để</p>
+                                                            <p className="text-yellow-100 text-xs font-medium">"Độc lập dân tộc + Chủ nghĩa xã hội"</p>
+                                                            <div className="mt-3 pt-2 border-t border-yellow-400/30">
+                                                                <span className="text-yellow-400 text-xs font-bold">• Độc lập thực chất</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {/* ========================================= */}
+
+                                                    <div className="bg-gradient-to-r from-yellow-500/10 to-red-500/10 rounded-lg p-4 border-l-4 border-yellow-400">
+                                                        <p className="text-yellow-200 text-sm">
+                                                            <strong>Điểm đột phá:</strong> Hồ Chí Minh không chỉ kế thừa tinh thần yêu nước của <strong>tiền nhân</strong>, mà còn <strong>nâng lên tầm cao mới</strong> bằng cách kết hợp với lý luận cách mạng khoa học.
                                                         </p>
                                                     </div>
                                                 </div>
 
-                                                <div className="bg-black/50 rounded-2xl p-8 border border-purple-400/30">
-                                                    <h4 className="text-purple-300 font-bold text-2xl mb-6 flex items-center gap-3">
-                                                        <span className="bg-purple-400 text-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-black">II</span>
-                                                        Có đi ngược với quan điểm "Vô sản toàn thế giới, đoàn kết lại!" của Marx-Engels không?
-                                                    </h4>
-                                                    <p className="text-xl leading-relaxed mb-6 text-white">
-                                                        Việc Hồ Chí Minh xác định độc lập dân tộc gắn liền với chủ nghĩa xã hội <strong className="text-purple-300">không hề đi ngược lại</strong> mà thực chất là <strong className="text-purple-300">sự vận dụng sáng tạo</strong> chủ nghĩa Marx-Lenin vào điều kiện cụ thể của Việt Nam.
-                                                    </p>
+                                                {/* PHẦN 2: Sự khác biệt cốt lõi - ĐÃ FIX */}
+                                                <div className="bg-gradient-to-b from-black/50 to-purple-900/30 rounded-2xl p-6 border border-purple-400/20">
+                                                    <div className="flex items-center gap-3 mb-4">
+                                                        <div className="bg-purple-400 text-black rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                                                        <h4 className="text-purple-300 font-bold text-xl">SỰ KHÁC BIỆT CỐT LÕI</h4>
+                                                    </div>
 
-                                                    {/* So sánh chi tiết */}
-                                                    <div className="space-y-6">
-                                                        <div className="bg-red-500/20 rounded-2xl p-6 border-2 border-red-400/40">
-                                                            <h5 className="text-red-300 font-bold text-xl mb-4 flex items-center gap-3">
-                                                                <span className="text-2xl">📚</span>
-                                                                Quan điểm của Marx-Engels
-                                                            </h5>
-                                                            <div className="space-y-3">
-                                                                <p className="text-white text-lg leading-relaxed">
-                                                                    <strong className="text-red-200">"Vô sản toàn thế giới, đoàn kết lại!"</strong>
-                                                                </p>
-                                                                <p className="text-red-100 text-base leading-relaxed">
-                                                                    Khẩu hiệu ra đời trong bối cảnh các nước tư bản phát triển ở châu Âu, nơi mâu thuẫn giữa giai cấp tư sản và vô sản đã trở thành mâu thuẫn chủ yếu và gay gắt nhất.
-                                                                </p>
+                                                    <div className="space-y-4">
+                                                        {/* Sử dụng FLEXBOX thay vì GRID */}
+                                                        <div className="flex flex-col md:flex-row gap-4">
+                                                            {/* Tiền nhân */}
+                                                            <div className="flex-1 bg-red-900/30 rounded-lg p-4">
+                                                                <div className="flex items-center gap-2 mb-3">
+                                                                    <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                                                                        <span className="text-red-400">👑</span>
+                                                                    </div>
+                                                                    <h5 className="text-red-300 font-bold">Tiền nhân:</h5>
+                                                                </div>
+                                                                <ul className="text-white/80 space-y-2">
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Chỉ dừng ở độc lập lãnh thổ</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Giành lại chủ quyền, nhưng không thay đổi cơ cấu xã hội</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Không thay đổi bản chất xã hội</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Vẫn là chế độ phong kiến/quân chủ</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Vẫn duy trì áp bức, bóc lột</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Nhân dân lao động vẫn bị bóc lột dưới hình thức mới</p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                        </div>
 
-                                                        <div className="bg-green-500/20 rounded-2xl p-6 border-2 border-green-400/40">
-                                                            <h5 className="text-green-300 font-bold text-xl mb-4 flex items-center gap-3">
-                                                                <span className="text-2xl">🇻🇳</span>
-                                                                Sự vận dụng sáng tạo của Hồ Chí Minh
-                                                            </h5>
-                                                            <div className="space-y-3">
-                                                                <p className="text-white text-lg leading-relaxed">
-                                                                    <strong className="text-green-200">"Độc lập dân tộc gắn liền với chủ nghĩa xã hội"</strong>
-                                                                </p>
-                                                                <ul className="text-green-100 space-y-2 text-base">
+                                                            {/* Hồ Chí Minh */}
+                                                            <div className="flex-1 bg-gradient-to-b from-yellow-500/20 to-orange-600/20 rounded-lg p-4 border border-yellow-400/30">
+                                                                <div className="flex items-center gap-2 mb-3">
+                                                                    <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                                                        <span className="text-yellow-400">⭐</span>
+                                                                    </div>
+                                                                    <h5 className="text-yellow-300 font-bold">Hồ Chí Minh:</h5>
+                                                                </div>
+                                                                <ul className="text-yellow-100 space-y-2">
                                                                     <li className="flex items-start gap-2">
-                                                                        <span className="text-green-400 mt-2">•</span>
-                                                                        <span>Không cứng nhắc áp dụng y nguyên lý luận Marx-Engels</span>
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-300">Độc lập dân tộc + CNXH</strong>
+                                                                            <p className="text-yellow-100/60 text-xs mt-1">Kết hợp hai nhiệm vụ trong một</p>
+                                                                        </div>
                                                                     </li>
                                                                     <li className="flex items-start gap-2">
-                                                                        <span className="text-green-400 mt-2">•</span>
-                                                                        <span>Hiểu Marx-Lenin là kim chỉ nam cho hành động, không phải giáo điều</span>
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-300">Giải phóng toàn diện</strong>
+                                                                            <p className="text-yellow-100/60 text-xs mt-1">Giải phóng dân tộc và giải phóng giai cấp</p>
+                                                                        </div>
                                                                     </li>
                                                                     <li className="flex items-start gap-2">
-                                                                        <span className="text-green-400 mt-2">•</span>
-                                                                        <span>Phân tích sâu sắc thực tiễn cách mạng Việt Nam</span>
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-300">Hướng tới hạnh phúc thực sự</strong>
+                                                                            <p className="text-yellow-100/60 text-xs mt-1">Xóa bỏ mọi hình thức áp bức, bóc lột</p>
+                                                                        </div>
                                                                     </li>
-                                                                    <li className="flex items-start gap-2">
-                                                                        <span className="text-green-400 mt-2">•</span>
-                                                                        <span>So với tiền nhân như Lê Lợi (chống xâm lược phong kiến) hay Phan Bội Châu (hướng Đông, nhưng không gắn giai cấp), Hồ Chí Minh sáng tạo bằng cách liên minh yêu nước với quốc tế vô sản</span>
-                                                                    </li>
-                                                                    {/* ==== BỔ SUNG THÊM VỀ KẾ THỪA ==== */}
-                                                                    <li className="flex items-start gap-2">
-                                                                        <span className="text-green-400 mt-2">•</span>
-                                                                        <span>
-                                                                            <strong>Kế thừa và phát triển:</strong> Kế thừa tinh thần yêu nước của tiền nhân nhưng phát triển thành hệ thống lý luận cách mạng hoàn chỉnh, kết hợp nhuần nhuyễn giữa truyền thống dân tộc và tinh hoa thời đại
-                                                                        </span>
-                                                                    </li>
-                                                                    {/* ===================================== */}
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    {/* Điểm tương đồng */}
-                                                    <div className="mt-6 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6 border-l-4 border-purple-400">
-                                                        <div className="flex items-start gap-3">
-                                                            <span className="text-3xl mt-1">🎯</span>
-                                                            <div>
-                                                                <h6 className="text-purple-300 font-bold text-lg mb-2">Mục tiêu chung:</h6>
-                                                                <p className="text-white text-base leading-relaxed">
-                                                                    Cả Marx-Engels và Hồ Chí Minh đều nhằm <strong className="text-purple-200">giải phóng con người khỏi mọi áp bức, bóc lột</strong>.
-                                                                    Chỉ có điều, <strong className="text-purple-200">con đường và phương pháp thực hiện có sự khác biệt</strong> để phù hợp với điều kiện lịch sử cụ thể, đặc biệt là thuộc địa như Việt Nam.
-                                                                </p>
+                                                        {/* Phần bước nhảy vọt */}
+                                                        <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-lg p-4">
+                                                            <div className="flex items-start gap-3">
+                                                                <div className="bg-gradient-to-br from-purple-500 to-blue-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
+                                                                    <span className="text-white text-xl">🚀</span>
+                                                                </div>
+                                                                <div>
+                                                                    <h6 className="text-purple-300 font-bold mb-2">BƯỚC NHẢY VỌT LỊCH SỬ</h6>
+                                                                    <p className="text-white text-sm leading-relaxed">
+                                                                        Từ <strong className="text-red-300">"độc lập hình thức"</strong> (chỉ thay đổi chủ thể cai trị)
+                                                                        → sang <strong className="text-yellow-300">"độc lập thực chất"</strong> (thay đổi toàn bộ cấu trúc xã hội).
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl p-6 border border-yellow-400/50">
-                                                    <h4 className="text-yellow-300 font-bold text-xl mb-4 flex items-center gap-2">
-                                                        <span className="text-3xl">🎯</span>
-                                                        Kết luận
-                                                    </h4>
-                                                    <p className="text-lg leading-relaxed">
-                                                        Tư tưởng độc lập dân tộc gắn liền với chủ nghĩa xã hội của Hồ Chí Minh là <strong className="text-yellow-300">sự thể hiện rõ nét tầm vóc trí tuệ</strong> và sự vận dụng sáng tạo, linh hoạt chủ nghĩa Marx-Lenin vào hoàn cảnh đặc thù của Việt Nam. Người đã xác định đúng đắn con đường cách mạng, tập hợp sức mạnh dân tộc để thực hiện thắng lợi mục tiêu giải phóng dân tộc và hạnh phúc nhân dân, phát triển vượt bậc so với quan niệm của tiền nhân.
-                                                    </p>
+                                                {/* PHẦN 3: Giá trị thời đại */}
+                                                <div className="bg-gradient-to-b from-black/50 to-blue-900/30 rounded-2xl p-6 border border-blue-400/20">
+                                                    <div className="flex items-center gap-3 mb-4">
+                                                        <div className="bg-blue-400 text-black rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                                                        <h4 className="text-blue-300 font-bold text-xl">GIÁ TRỊ THỜI ĐẠI</h4>
+                                                    </div>
+
+                                                    <div className="space-y-4">
+                                                        <div className="bg-blue-900/20 rounded-lg p-4">
+                                                            <h5 className="text-blue-300 font-bold mb-3 flex items-center gap-2">
+                                                                <span>🎯</span>
+                                                                Tại sao vẫn còn giá trị ngày nay?
+                                                            </h5>
+                                                            <ul className="text-white/80 space-y-2 text-sm">
+                                                                <li className="flex items-start gap-2">
+                                                                    <span className="text-blue-400 mt-1">•</span>
+                                                                    <span><strong>Tính khoa học:</strong> Dựa trên phân tích thực tiễn Việt Nam, không giáo điều</span>
+                                                                </li>
+                                                                <li className="flex items-start gap-2">
+                                                                    <span className="text-blue-400 mt-1">•</span>
+                                                                    <span><strong>Tính nhân văn:</strong> Lấy hạnh phúc nhân dân làm mục tiêu cao nhất</span>
+                                                                </li>
+                                                                <li className="flex items-start gap-2">
+                                                                    <span className="text-blue-400 mt-1">•</span>
+                                                                    <span><strong>Tính sáng tạo:</strong> Vận dụng lý luận quốc tế vào điều kiện cụ thể trong nước</span>
+                                                                </li>
+                                                                <li className="flex items-start gap-2">
+                                                                    <span className="text-blue-400 mt-1">•</span>
+                                                                    <span><strong>Tính dự báo:</strong> Đặt nền móng cho phát triển bền vững</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* PHẦN KẾT LUẬN - ĐÃ FIX */}
+                                                <div className="bg-gradient-to-b from-yellow-500/20 to-orange-600/30 rounded-2xl p-6 border-2 border-yellow-400/50">
+                                                    <div className="flex items-center gap-3 mb-4">
+                                                        <div className="bg-gradient-to-br from-yellow-400 to-orange-500 text-black rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
+                                                            ✓
+                                                        </div>
+                                                        <h4 className="text-yellow-300 font-bold text-xl">KẾT LUẬN TỔNG HỢP</h4>
+                                                    </div>
+
+                                                    <div className="space-y-4">
+                                                        {/* Tuyên bố chính */}
+                                                        <div className="bg-gradient-to-r from-yellow-400/10 to-orange-500/10 rounded-lg p-5 border-l-4 border-yellow-400">
+                                                            <p className="text-yellow-200 text-lg leading-relaxed font-medium">
+                                                                Tư tưởng <strong className="text-yellow-300">"Độc lập dân tộc gắn liền với Chủ nghĩa xã hội"</strong> của Hồ Chí Minh
+                                                                không chỉ là một <strong className="text-yellow-300">sự đột phá lý luận</strong>, mà còn là
+                                                                <strong className="text-yellow-300"> giải pháp thực tiễn hoàn chỉnh</strong> cho vấn đề dân tộc và giai cấp trong điều kiện Việt Nam.
+                                                            </p>
+                                                        </div>
+
+                                                        {/* Bài học & Giá trị - FLEXBOX */}
+                                                        <div className="flex flex-col md:flex-row gap-4">
+                                                            {/* Bài học lịch sử */}
+                                                            <div className="flex-1 bg-black/40 rounded-lg p-4">
+                                                                <div className="flex items-center gap-2 mb-3">
+                                                                    <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                                                        <span className="text-yellow-400">📜</span>
+                                                                    </div>
+                                                                    <h5 className="text-yellow-300 font-bold">Bài học lịch sử:</h5>
+                                                                </div>
+                                                                <ul className="text-white/80 space-y-3">
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-200">Kế thừa có chọn lọc tinh hoa truyền thống</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Giữ lại tinh thần yêu nước, loại bỏ hạn chế lịch sử</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-200">Vận dụng sáng tạo lý luận vào thực tiễn</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Không rập khuôn, máy móc chủ nghĩa Marx-Lenin</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-yellow-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-yellow-200">Luôn đặt lợi ích nhân dân lên hàng đầu</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Mục tiêu cao nhất là hạnh phúc của nhân dân lao động</p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+
+                                                            {/* Giá trị hiện tại */}
+                                                            <div className="flex-1 bg-red-900/40 rounded-lg p-4">
+                                                                <div className="flex items-center gap-2 mb-3">
+                                                                    <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                                                                        <span className="text-red-400">🎯</span>
+                                                                    </div>
+                                                                    <h5 className="text-red-300 font-bold">Giá trị hiện tại:</h5>
+                                                                </div>
+                                                                <ul className="text-white/80 space-y-3">
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Vẫn là kim chỉ nam cho phát triển đất nước</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Định hướng cho công cuộc đổi mới và hội nhập</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Giúp giữ vững độc lập trong hội nhập quốc tế</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Cân bằng giữa mở cửa và bảo vệ chủ quyền</p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li className="flex items-start gap-2">
+                                                                        <span className="text-red-400 mt-1">•</span>
+                                                                        <div>
+                                                                            <strong className="text-red-200">Đảm bảo phát triển bền vững, công bằng</strong>
+                                                                            <p className="text-white/60 text-xs mt-1">Phát triển kinh tế đi đôi với công bằng xã hội</p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Câu trích dẫn cuối */}
+                                                        <div className="bg-gradient-to-r from-red-500/10 to-yellow-500/10 rounded-lg p-4 border-l-4 border-yellow-400">
+                                                            <div className="flex items-start gap-3">
+                                                                <div className="text-2xl">💎</div>
+                                                                <div>
+                                                                    <p className="text-white text-sm italic leading-relaxed">
+                                                                        "Sự khác biệt của Hồ Chí Minh so với tiền nhân không phải ở mục tiêu yêu nước,
+                                                                        mà ở <strong className="text-yellow-300">tầm nhìn chiến lược</strong> và
+                                                                        <strong className="text-yellow-300"> phương pháp khoa học</strong> để đạt được mục tiêu đó."
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            )}
-
-                            {/* Nút mũi tên xuống để chuyển section */}
-                            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+                            </div>
+                        )}
+                        {/* Scroll Indicator */}
+                        <div className="text-center mt-16">
+                            <div className="inline-flex flex-col items-center gap-2">
+                                <span className="text-yellow-300/60 text-sm">Cuộn xuống để tiếp tục</span>
                                 <button
                                     onClick={() => scrollToNextSection('cau-hoi-suy-ngam')}
-                                    className="text-yellow-300 hover:text-yellow-400 transition-colors duration-300 hover:scale-110 transform"
-                                    aria-label="Chuyển đến section tiếp theo"
+                                    className="text-yellow-300 hover:text-yellow-400 transition-colors duration-300 hover:scale-110 transform animate-bounce"
+                                    aria-label="Chuyển đến phần tiếp theo"
                                 >
                                     <ChevronDown className="w-8 h-8" />
                                 </button>
@@ -1128,6 +1788,11 @@ function App() {
                         </div>
                     </div>
                 </section>
+
+                                                                                                   
+
+                
+
 
                 {/* Quiz */}
                 <section id="quiz" className="py-16 bg-gradient-to-r from-red-900 to-red-800 relative overflow-hidden min-h-screen flex items-center" data-reveal>
@@ -1327,6 +1992,13 @@ function App() {
                                 <div className="space-y-6">
                                     <div className="bg-white/80 rounded-2xl p-6 border-2 border-red-200">
                                         <h4 className="text-red-700 font-bold text-xl mb-3 flex items-center gap-3">
+                                            <span className="text-2xl">🎥</span>
+                                            Runway Gen-2
+                                        </h4>
+                                        <p className="text-red-600 text-lg leading-relaxed">Tạo video minh họa chính từ prompt mô tả chi tiết, chuyển cảnh mượt mà.</p>
+                                    </div>
+                                    <div className="bg-white/80 rounded-2xl p-6 border-2 border-red-200">
+                                        <h4 className="text-red-700 font-bold text-xl mb-3 flex items-center gap-3">
                                             <span className="text-2xl">🎨</span>
                                             GPT (OpenAI)
                                         </h4>
@@ -1341,7 +2013,10 @@ function App() {
                                     </div>
                                     <div className="bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-xl p-6 border-l-4 border-yellow-400">
                                         <p className="text-red-700 font-semibold text-lg">
-                                            → Ảnh AI được dùng để minh họa khái niệm, timeline, poster mô phỏng phong cách cổ động, giúp nội dung hấp dẫn và trực quan hơn.
+                                            → Nội dung video được tạo bằng AI để minh họa khái niệm, timeline, poster mô phỏng phong cách cổ động.
+                                        </p>
+                                        <p className="text-red-700 font-semibold text-lg mt-3">
+                                            → Các hình ảnh AI được sử dụng để làm cho bài giảng về tư tưởng Hồ Chí Minh trở nên hấp dẫn và trực quan hơn.
                                         </p>
                                     </div>
                                 </div>

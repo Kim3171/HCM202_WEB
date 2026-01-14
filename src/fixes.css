@@ -1,0 +1,85 @@
+/* ===================================
+   VIDEO SECTION CENTERING FIX ONLY
+   =================================== */
+
+/* Target ONLY the video section 3-column grid */
+#video-giang-giai .flex.justify-center {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+#video-giang-giai .max-w-4xl {
+    max-width: 72rem !important; /* 1152px */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Force the grid to show 3 columns on medium screens and up */
+#video-giang-giai .grid-cols-1 {
+    grid-template-columns: 1fr !important;
+}
+
+@media (min-width: 768px) {
+    #video-giang-giai .grid-cols-1 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+#video-giang-giai .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Ensure the grid displays correctly */
+#video-giang-giai .grid {
+    display: grid !important;
+}
+
+    /* Make all 3 boxes equal height and centered */
+    #video-giang-giai .grid > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        height: 100% !important;
+    }
+
+    /* Make the grid items stretch to fill available space */
+    #video-giang-giai .grid > div {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+/* Remove any conflicting styles from other sections */
+#video-giang-giai * {
+    box-sizing: border-box !important;
+}
+/* FLEXBOX VERSION - VIDEO SECTION ONLY */
+#video-giang-giai .flex.justify-center {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+#video-giang-giai .max-w-5xl {
+    max-width: 72rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#video-giang-giai .flex-col.md\:flex-row {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+@media (min-width: 768px) {
+    #video-giang-giai .flex-col.md\:flex-row {
+        flex-direction: row !important;
+    }
+}
+
+#video-giang-giai .flex-1 {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
