@@ -408,7 +408,7 @@ function App() {
                                     {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                                 </button>
                                 <div className="hidden md:block px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-yellow-400/20 border border-yellow-400/40 rounded-full text-yellow-300 text-sm font-bold tracking-wide">
-                                    NHÓM SPST2
+                                    NHÓM SPST1
                                 </div>
                             </div>
                         </div>
@@ -2208,7 +2208,7 @@ function App() {
                 {/* Footer */}
                 <footer className="bg-red-900 border-t border-yellow-400/20 py-8">
                     <div className="container mx-auto px-4 text-center">
-                        <p className="text-yellow-100 mb-4">© 2026 - Tư tưởng Hồ Chí Minh về Độc lập dân tộc và Chủ nghĩa xã hội - Nhóm SPST2 - AI1807</p>
+                        <p className="text-yellow-100 mb-4">© 2026 - Tư tưởng Hồ Chí Minh về Độc lập dân tộc và Chủ nghĩa xã hội - Nhóm SPST1 - AI1807</p>
                         <p className="text-yellow-300 text-sm">"Không có gì quý hơn độc lập, tự do" - Chủ tịch Hồ Chí Minh</p>
                     </div>
                 </footer>
