@@ -1,7 +1,8 @@
 ﻿import { useState, useEffect, useRef } from 'react'
-import { Button } from '@/components/ui/button.jsx'
+import './App.css'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
-import { Star, Users, Globe, Heart, BookOpen, Award, ArrowRight, ChevronDown, Sun, Moon } from 'lucide-react'
+import { Star, Users, Globe, Heart, BookOpen, Award, ArrowRight, ChevronDown, Sun, Moon, RefreshCw } from 'lucide-react'
 
 
 function App() {
@@ -72,7 +73,7 @@ function App() {
                 'Để theo đuổi mô hình tư bản chủ nghĩa như các nước phương Tây.',
                 'Để chỉ tập trung vào việc đánh đuổi ngoại xâm mà không cần cải tạo xã hội.'
             ],
-            correct: 1,
+            correct: 1, // B (second option, index 1)
             explanation: 'Hồ Chí Minh nhấn mạnh rằng chỉ có chủ nghĩa xã hội mới giải phóng được các dân tộc bị áp bức khỏi ách nô lệ, khác biệt với quan niệm độc lập của tiền nhân chủ yếu tập trung vào lãnh thổ mà không gắn với giải phóng giai cấp.'
         },
         {
@@ -83,61 +84,74 @@ function App() {
                 'Chỉ hướng về phương Đông hoặc phương Tây mà không sáng tạo.',
                 'Tập trung vào việc khôi phục chế độ quân chủ phong kiến.'
             ],
-            correct: 1,
+            correct: 2, // CHANGED TO C (third option, index 2)
             explanation: 'Các tiền nhân như Phan Bội Châu hướng Nhật Bản hoặc Phan Châu Trinh hướng Pháp, nhưng Hồ Chí Minh sáng tạo bằng cách kết hợp yêu nước với chủ nghĩa xã hội, khắc phục khuynh hướng dân tộc hẹp hòi và giáo điều.'
         },
         {
             question: 'Trong tư tưởng Hồ Chí Minh, thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam có đặc điểm lớn nhất là gì?',
             options: [
                 'Trải qua giai đoạn tư bản chủ nghĩa đầy đủ như các nước châu Âu.',
-                'Từ một nước nông nghiệp lạc hậu tiến thẳng lên chủ nghĩa xã hội, không kinh qua tư bản chủ nghĩa.',
+                'Bỏ qua việc xây dựng con người mới xã hội chủ nghĩa.',
                 'Chỉ tập trung vào kháng chiến mà không xây dựng kinh tế.',
-                'Bỏ qua việc xây dựng con người mới xã hội chủ nghĩa.'
+                'Từ một nước nông nghiệp lạc hậu tiến thẳng lên chủ nghĩa xã hội, không kinh qua tư bản chủ nghĩa.'
             ],
-            correct: 1,
+            correct: 3, // CHANGED TO D (fourth option, index 3)
             explanation: 'Hồ Chí Minh nhận định đặc điểm to nhất là bỏ qua chế độ tư bản chủ nghĩa, phù hợp với thực tiễn Việt Nam thuộc địa nửa phong kiến, để rút ngắn con đường phát triển.'
         },
         {
             question: 'Ý nghĩa thực tiễn của việc vận dụng tư tưởng Hồ Chí Minh về độc lập dân tộc gắn liền với chủ nghĩa xã hội trong giai đoạn hiện nay là gì?',
             options: [
                 'Trở lại mô hình kinh tế kế hoạch hóa tập trung hoàn toàn.',
-                'Là cơ sở cho đổi mới, phát triển kinh tế thị trường định hướng xã hội chủ nghĩa và bảo vệ Tổ quốc.',
                 'Chỉ áp dụng cho miền Bắc, không liên quan đến toàn quốc.',
+                'Là cơ sở cho đổi mới, phát triển kinh tế thị trường định hướng xã hội chủ nghĩa và bảo vệ Tổ quốc.',
                 'Bỏ qua hội nhập quốc tế để tránh lệ thuộc.'
             ],
-            correct: 1,
+            correct: 2, // c (second option, index 2)
             explanation: 'Tư tưởng này giúp Việt Nam kiên định mục tiêu, kết hợp sức mạnh dân tộc với thời đại, đảm bảo phát triển bền vững và giữ vững độc lập tự chủ.'
         },
         {
             question: 'Theo Hồ Chí Minh, mối quan hệ giữa độc lập dân tộc và chủ nghĩa xã hội là gì?',
             options: [
-                'Hai yếu tố độc lập, có thể tách rời nhau.',
                 'Độc lập dân tộc là điều kiện tiên quyết cho chủ nghĩa xã hội, và chủ nghĩa xã hội bảo đảm độc lập vững chắc.',
+                'Hai yếu tố độc lập, có thể tách rời nhau.',
                 'Chủ nghĩa xã hội chỉ cần thiết sau khi có độc lập hình thức.',
                 'Độc lập chỉ gắn với tự do cá nhân, không liên quan đến xã hội.'
             ],
-            correct: 1,
+            correct: 0, // CHANGED TO A (second option, index 0)
             explanation: 'Hồ Chí Minh khẳng định quan hệ biện chứng: không có độc lập thì không xây dựng được xã hội chủ nghĩa, và chỉ xã hội chủ nghĩa mới đảm bảo độc lập thực chất, mang lại hạnh phúc cho nhân dân.'
         }
     ]
 
+
+    // 2. State (at the top of your component)
+    const [score, setScore] = useState(0);
+    
+
+    // 3. Scroll function
     const scrollToSection = (sectionId) => {
-        const el = document.getElementById(sectionId)
-        if (el) el.scrollIntoView({ behavior: 'smooth' })
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
-    const handleQuizAnswer = (idx) => {
-        setSelectedAnswer(idx)
-        setShowAnswer(true)
-    }
+    // 4. KEEP THIS handleQuizAnswer (with score)
+    const handleQuizAnswer = (index) => {
+        setSelectedAnswer(index);
+        setShowAnswer(true);
 
+        // Check if answer is correct and update score
+        if (index === quizQuestions[currentQuiz].correct) {
+            setScore(prevScore => prevScore + 1);
+        }
+    };
+
+    // 5. KEEP THIS nextQuestion
     const nextQuestion = () => {
         if (currentQuiz < quizQuestions.length - 1) {
-            setCurrentQuiz(currentQuiz + 1)
-            setSelectedAnswer(null)
-            setShowAnswer(false)
+            setCurrentQuiz(currentQuiz + 1);
+            setSelectedAnswer(null);
+            setShowAnswer(false);
         }
-    }
+    };
 
     // Init mode preferences & reduced motion
     useEffect(() => {
@@ -1813,7 +1827,7 @@ function App() {
                     <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
                     <div className="container mx-auto px-4 relative z-10">
-                        {/* Title gọn hơn */}
+                        {/* Title với score hiển thị */}
                         <div className="text-center mb-12">
                             <h2 className="text-4xl md:text-5xl font-bold text-yellow-300 mb-4 tracking-wider relative">
                                 <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">
@@ -1824,20 +1838,45 @@ function App() {
                             <p className="text-lg text-white opacity-90 font-medium">
                                 TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐỘC LẬP DÂN TỘC VÀ CHỦ NGHĨA XÃ HỘI
                             </p>
+
+                            {/* Score Display - Hiển thị điểm số */}
+                            {score > 0 && (
+                                <div className="mt-4 inline-flex items-center gap-3 bg-yellow-400/20 backdrop-blur-sm px-4 py-2 rounded-full border border-yellow-400/30">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-yellow-300 text-xl">🏆</span>
+                                        <span className="text-yellow-300 font-bold">Điểm:</span>
+                                        <span className="text-white font-bold text-xl">{score}/{quizQuestions.length}</span>
+                                    </div>
+                                    <div className="h-4 w-px bg-yellow-400/50"></div>
+                                    <div className="text-yellow-200 text-sm">
+                                        {score === quizQuestions.length ? "🎉 Xuất sắc!" :
+                                            score >= quizQuestions.length * 0.8 ? "👍 Rất tốt!" :
+                                                score >= quizQuestions.length * 0.6 ? "😊 Khá tốt" : "💪 Cố gắng thêm"}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         <div className="max-w-3xl mx-auto">
                             <Card className="bg-yellow-50 border-yellow-400 shadow-2xl backdrop-blur-sm bg-opacity-95">
                                 <CardHeader className="bg-gradient-to-r from-red-800 via-red-700 to-red-800 text-yellow-300 py-4">
-                                    <CardTitle className="text-xl font-bold text-center">
-                                        Câu {currentQuiz + 1} / {quizQuestions.length}
-                                        <div className="w-full bg-red-900 rounded-full h-1.5 mt-2">
-                                            <div
-                                                className="bg-gradient-to-r from-yellow-400 to-yellow-500 h-1.5 rounded-full transition-all duration-500"
-                                                style={{ width: `${((currentQuiz + 1) / quizQuestions.length) * 100}%` }}
-                                            ></div>
-                                        </div>
-                                    </CardTitle>
+                                    <div className="flex justify-between items-center">
+                                        <CardTitle className="text-xl font-bold">
+                                            Câu {currentQuiz + 1} / {quizQuestions.length}
+                                        </CardTitle>
+                                        {score > 0 && (
+                                            <div className="text-sm bg-yellow-400/20 px-3 py-1 rounded-full">
+                                                <span className="text-yellow-300">Đúng: </span>
+                                                <span className="text-white font-bold">{score}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="w-full bg-red-900 rounded-full h-1.5 mt-2">
+                                        <div
+                                            className="bg-gradient-to-r from-yellow-400 to-yellow-500 h-1.5 rounded-full transition-all duration-500"
+                                            style={{ width: `${((currentQuiz + 1) / quizQuestions.length) * 100}%` }}
+                                        ></div>
+                                    </div>
                                 </CardHeader>
 
                                 <CardContent className="p-6">
@@ -1874,7 +1913,7 @@ function App() {
                                                             <span className="text-white text-sm font-bold">✓</span>
                                                         </div>
                                                         <div>
-                                                            <p className="text-green-800 font-semibold mb-1">Chính xác!</p>
+                                                            <p className="text-green-800 font-semibold mb-1">Chính xác! +1 điểm</p>
                                                             <p className="text-green-700 text-sm leading-relaxed">{quizQuestions[currentQuiz].explanation}</p>
                                                         </div>
                                                     </div>
@@ -1912,10 +1951,71 @@ function App() {
                                     )}
 
                                     {showAnswer && currentQuiz === quizQuestions.length - 1 && (
-                                        <div className="text-center">
-                                            <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200 shadow-lg">
-                                                <h4 className="text-xl font-bold text-green-800 mb-1">🎉 Hoàn thành!</h4>
-                                                <p className="text-green-700">Bạn đã hoàn thành bộ câu hỏi về tư tưởng Hồ Chí Minh</p>
+                                        <div className="text-center space-y-4">
+                                            {/* Kết quả cuối cùng */}
+                                            <div className="bg-gradient-to-br from-yellow-400/20 via-orange-500/20 to-red-600/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400/30 shadow-2xl">
+                                                <div className="flex flex-col items-center">
+                                                    {/* Biểu tượng kết quả */}
+                                                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mb-4 shadow-lg">
+                                                        {score === quizQuestions.length ? (
+                                                            <span className="text-4xl">🏆</span>
+                                                        ) : score >= quizQuestions.length * 0.8 ? (
+                                                            <span className="text-4xl">⭐</span>
+                                                        ) : score >= quizQuestions.length * 0.6 ? (
+                                                            <span className="text-4xl">👍</span>
+                                                        ) : (
+                                                            <span className="text-4xl">💪</span>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Thông báo kết quả */}
+                                                    <h3 className="text-2xl font-bold text-yellow-400 mb-2">
+                                                        {score === quizQuestions.length ? "🎉 XUẤT SẮC!" :
+                                                            score >= quizQuestions.length * 0.8 ? "🌟 RẤT TỐT!" :
+                                                                score >= quizQuestions.length * 0.6 ? "👍 KHÁ TỐT" : "💪 CỐ GẮNG HƠN"}
+                                                    </h3>
+
+                                                    {/* Điểm số */}
+                                                    <div className="text-4xl font-bold text-white mb-3">
+                                                        <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                                                            {score}/{quizQuestions.length}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Phần trăm */}
+                                                    <div className="text-lg text-yellow-300 mb-4">
+                                                        Đạt {Math.round((score / quizQuestions.length) * 100)}%
+                                                    </div>
+
+                                                    {/* Thanh progress */}
+                                                    <div className="w-full max-w-xs bg-red-900/50 rounded-full h-3 mb-6">
+                                                        <div
+                                                            className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 h-3 rounded-full transition-all duration-1000 ease-out"
+                                                            style={{ width: `${(score / quizQuestions.length) * 100}%` }}
+                                                        ></div>
+                                                    </div>
+
+                                                    {/* Lời nhắn */}
+                                                    <p className="text-white text-center max-w-md mb-6">
+                                                        {score === quizQuestions.length ?
+                                                            "Bạn đã nắm vững tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội!" :
+                                                            "Hãy tiếp tục nghiên cứu để hiểu sâu hơn về tư tưởng Hồ Chí Minh!"}
+                                                    </p>
+
+                                                    {/* Nút làm lại */}
+                                                    <Button
+                                                        onClick={() => {
+                                                            setCurrentQuiz(0);
+                                                            setSelectedAnswer(null);
+                                                            setShowAnswer(false);
+                                                            setScore(0);
+                                                        }}
+                                                        className="bg-gradient-to-r from-red-800 to-red-700 hover:from-red-700 hover:to-red-600 text-yellow-300 px-8 py-3 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-full"
+                                                    >
+                                                        <RefreshCw className="mr-2 h-4 w-4" />
+                                                        Làm lại bài kiểm tra
+                                                    </Button>
+                                                </div>
                                             </div>
                                         </div>
                                     )}
@@ -1933,7 +2033,6 @@ function App() {
                                 <ChevronDown className="w-6 h-6" />
                             </button>
                         </div>
-
                     </div>
                 </section>
 
